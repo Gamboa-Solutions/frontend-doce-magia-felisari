@@ -1,11 +1,14 @@
-version: "3"
+version: '3'
 
 services:
-  web:
+  nextjs-app:
+    container_name: nextjs_container
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3009:3000"
-    environment:
-      - NODE_ENV=production
+      - "3004:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+

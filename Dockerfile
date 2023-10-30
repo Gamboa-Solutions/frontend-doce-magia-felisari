@@ -1,23 +1,20 @@
-# Base image
+# Baseado na imagem oficial do Node.js
 FROM node:18-alpine
 
-# Set working directory
+# Definindo a pasta de trabalho
 WORKDIR /app
 
-# Copy package.json and package-lock.json (ou yarn.lock, se você estiver usando Yarn)
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy local code to the container
+# Copiando todos os arquivos da aplicação
 COPY . .
 
-# Build the Next.js app
+# Instalando as dependências
+RUN npm install
+
+# Construindo o projeto Next.js
 RUN npm run build
 
-# Expose port
+# Expondo a porta padrão do Next.js
 EXPOSE 3000
 
-# Start the app
+# Comando para iniciar o servidor Next.js
 CMD ["npm", "start"]
