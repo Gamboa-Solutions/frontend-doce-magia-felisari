@@ -14,7 +14,7 @@ RUN npm install
 RUN npm run build
 
 # Expondo a porta padrão do Next.js
-EXPOSE 3000
+EXPOSE 3004
 
 # Comando para iniciar o servidor Next.js
 CMD ["npm", "start"]
